@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Dm Unibo User Search interface}
   gem.summary       = %q{Interface for Directory Service. Search and verify users.}
   gem.homepage      = ""
+  gem.license       = %q{MIT}
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
