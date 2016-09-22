@@ -6,4 +6,6 @@ require "dm_unibo_user_search/find_result"
 require "dm_unibo_user_search/user"
 
 module DmUniboUserSearch
+  class Engine < Rails::Engine
+  end
 end
