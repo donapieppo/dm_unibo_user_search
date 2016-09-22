@@ -1,3 +1,6 @@
 module DmUniboUserSearch
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 end
+
+# 0.1.1
+# with rails 5
