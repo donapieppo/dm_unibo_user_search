@@ -1,7 +1,7 @@
 module DmUniboUserSearch
   class NoUser       < RuntimeError
     def to_s
-      I18n.t 'dm_unibo_user_search.nouser'
+      I18n.t 'dm_unibo_user_search.no_user'
     end
   end
   class TooManyUsers < RuntimeError
