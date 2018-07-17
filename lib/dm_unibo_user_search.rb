@@ -1,3 +1,4 @@
+require "rails"
 require "savon"
 require "dm_unibo_user_search/errors"
 require "dm_unibo_user_search/version"
