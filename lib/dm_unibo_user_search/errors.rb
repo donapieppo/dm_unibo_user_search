@@ -1,4 +1,7 @@
 module DmUniboUserSearch
+  class NoConf       < RuntimeError
+  end
+
   class NoUser       < RuntimeError
     def to_s
       I18n.t 'dm_unibo_user_search.no_user'
