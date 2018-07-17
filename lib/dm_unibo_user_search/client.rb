@@ -3,7 +3,7 @@ module DmUniboUserSearch
     SOAP_CONF_FILE = '/etc/dm_unibo_user_search/soap_conf.yml'
 
     def initialize
-      return unless File.file?(SOAP_CONF_FILE)
+      File.file?(SOAP_CONF_FILE) or raise NoConf
 
       conf = YAML.load_file(SOAP_CONF_FILE)
       @savon_client = Savon.client do
