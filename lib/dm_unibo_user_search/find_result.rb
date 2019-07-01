@@ -1,7 +1,8 @@
 module DmUniboUserSearch
   class FindResult
-    def initialize(h)
+    def initialize(h, select_proc = nil)
       @res = h
+      @select_proc = select_proc
     end
 
     def find_state
@@ -19,11 +20,12 @@ module DmUniboUserSearch
     def users
       return [] unless self.ok?
       found = @res[:values][:user_account_found]
-      if found.is_a? Array
+      res = if found.is_a? Array
         found.map{|xml| User.new(xml)}
       else
         [User.new(found)]
       end
+      @select_proc ? res.select{|u| @select_proc.call(u)} : res
     end
   end
 end
