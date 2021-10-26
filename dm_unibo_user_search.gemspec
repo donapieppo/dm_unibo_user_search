@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["pietro.donatini@unibo.it"]
   gem.description   = %q{Dm Unibo User Search interface}
   gem.summary       = %q{Interface for Directory Service. Search and verify users.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/donapieppo/dm_unibo_user_search"
   gem.license       = %q{MIT}
 
   gem.files         = `git ls-files`.split($/)
