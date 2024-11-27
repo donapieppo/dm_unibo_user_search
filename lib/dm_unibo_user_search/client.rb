@@ -1,15 +1,10 @@
 module DmUniboUserSearch
   class Client
-    SOAP_CONF_FILE = "/etc/dm_unibo_user_search/soap_conf.yml"
-
-    def initialize
-      File.file?(SOAP_CONF_FILE) or raise NoConf
-
-      conf = YAML.load_file(SOAP_CONF_FILE)
+    def initialize(wsdl_file = "/etc/dm_unibo_user_search/DSASearch.wsdl.xml")
       @savon_client = Savon.client do
-        wsdl conf["dm_unibo_user_search"]["wsdl"]
+        wsdl wsdl_file
         ssl_verify_mode :none
-        basic_auth [conf["dm_unibo_user_search"]["username"], conf["dm_unibo_user_search"]["password"]]
+        basic_auth [ENV["DSA_SEARCH_USERNAME"], ENV["DSA_SEARCH_PASSWORD"]]
         convert_request_keys_to :camelcase
         log_level :warn
         # log_level :debug
@@ -28,7 +23,7 @@ module DmUniboUserSearch
     end
 
     def show_parms
-      res = @savon_client.call(:get_user_parm) do
+      @savon_client.call(:get_user_parm) do
         message({})
       end.body
     end
