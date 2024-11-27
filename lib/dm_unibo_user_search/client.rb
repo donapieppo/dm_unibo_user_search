@@ -1,6 +1,9 @@
 module DmUniboUserSearch
   class Client
     def initialize(wsdl_file = "/etc/dm_unibo_user_search/DSASearch.wsdl.xml")
+      if !ENV["DSA_SEARCH_USERNAME"] || !ENV["DSA_SEARCH_PASSWORD"]
+        raise "Missing envs for DSA_SEARCH_USERNAME and DSA_SEARCH_PASSWORD"
+      end
       @savon_client = Savon.client do
         wsdl wsdl_file
         ssl_verify_mode :none
