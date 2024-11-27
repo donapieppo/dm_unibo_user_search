@@ -1,8 +1,7 @@
-require 'spec_helper'
-require 'savon'
+require "spec_helper"
+require "savon"
 
 describe DmUniboUserSearch do
-
   before(:all) do
     @dsa = DmUniboUserSearch::Client.new
   end
@@ -10,6 +9,4 @@ describe DmUniboUserSearch do
   it "should list operations" do
     expect(@dsa.operations).to eq([:get_user_parm, :get_parm_info, :find_user])
   end
-
 end
-
