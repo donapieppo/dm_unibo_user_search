@@ -16,8 +16,6 @@ Gem::Specification.new do |gem|
   gem.executables = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   gem.require_paths = ["lib"]
 
-  gem.add_dependency "rails", "~> 7.0"
-  gem.add_dependency "rack", "~> 3.1"
   gem.add_dependency "savon", "~> 2.15.0"
 
   gem.add_development_dependency "rake"
